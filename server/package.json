@@ -1,0 +1,49 @@
+{
+  "name": "drugbank-api",
+  "version": "1.0.0",
+  "description": "Crawler drugbank and search api base on firebase",
+  "main": "index.js",
+  "scripts": {
+    "debug": "nodemon --inspect-brk=0.0.0.0:9229 --exec 'ts-node src/index.ts'",
+    "start:dev": "nodemon -r tsconfig-paths/register ./src/index.ts",
+    "start:prod": "node -r ts-node/register/transpile-only -r tsconfig-paths/register ./dist/index.js",
+    "build": "tsc -p ./",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint . --ext .ts",
+    "lint:fix": "npm run eslint -- --fix"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-rate-limit": "^6.4.0",
+    "firebase": "^9.8.2",
+    "firebase-admin": "^10.2.0",
+    "helmet": "^5.1.0",
+    "nodemon": "^2.0.16",
+    "ts-node": "^10.8.0",
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.7.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/express-rate-limit": "^6.0.0",
+    "@types/helmet": "^4.0.0",
+    "@types/module-alias": "^2.0.1",
+    "@types/node": "^17.0.36",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2"
+  }
+}

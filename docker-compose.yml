@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  server:
+    build:
+      context: ./server
+    container_name: server
+    command: npm run start:prod
+    volumes:
+      - ./server/:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - "3000:3000"    
+      - "9222:9229"
+
+volumes:
+  server:
