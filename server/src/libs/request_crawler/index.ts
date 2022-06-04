@@ -1,5 +1,5 @@
-import { DRUGBANK, PORTDRUGBANK, DRUGBANKSERVICES, DRUGBANKSORTPARAMETER, ACCEPT, USERAGENT } from '@src/config';
-import https from 'https';
+import { DRUGBANK, PORTDRUGBANK, DRUGBANKSERVICES, DRUGBANKSORTPARAMETER, ACCEPT, USERAGENT } from '@src/config'
+import https from 'https'
 
 
 export const httpGet = async (pageCount: number) => {
@@ -12,29 +12,29 @@ export const httpGet = async (pageCount: number) => {
                 accept: ACCEPT,
                 "user-agent": USERAGENT,
                 method: 'GET',
-            };
-    
+            }
+
             const req = https.request(options, res => {
-                console.log(`statusCode: ${res.statusCode}`);
-    
+                console.log(`statusCode: ${res.statusCode}`)
+
                 res.setEncoding('utf8');
-                let returnData = '';
-    
+                let returnData = ''
+
                 res.on('data', d => {
-                    returnData += d;
+                    returnData += d
                 });
-    
+
                 res.on('end', () => {
-                    resolve(JSON.parse(returnData));
+                    resolve(JSON.parse(returnData))
                 });
-    
+
             });
-    
+
             req.on('error', error => {
-                reject(error);
+                reject(error)
             });
-    
-            req.end();
+
+            req.end()
         }))
     ]);
 }

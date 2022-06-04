@@ -1,13 +1,13 @@
-import { searchDrug } from "@src/controllers"
+import { searchDrugExactly } from "@src/controllers"
 import { rpMessage } from "@src/libs"
 import { Router, Request, Response } from "express"
 
-const searchRoute = Router();
+const detailRoute = Router();
 
-searchRoute.get('/:drugName', async (req: Request, res: Response) => {
-    const { drugName } = req.params
-    const rs = await searchDrug(drugName, 10)
-    
+detailRoute.get('/:id', async (req: Request, res: Response) => {
+    const { id } = req.params
+    const rs = await searchDrugExactly(id)
+
     if (JSON.stringify(rs).length === 0) {
         return res.json(rpMessage('404', 'Not Found'))
     }
@@ -17,4 +17,4 @@ searchRoute.get('/:drugName', async (req: Request, res: Response) => {
     })
 });
 
-export { searchRoute }
+export { detailRoute }

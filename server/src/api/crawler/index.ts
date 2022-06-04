@@ -1,20 +1,18 @@
-import { TOKENCRAWLER } from "@src/config";
-import { drugCrawler } from "@src/controllers";
-import { Router, Request, Response } from "express";
+import { TOKENCRAWLER } from "@src/config"
+import { drugCrawler } from "@src/controllers"
+import { rpMessage } from "@src/libs"
+import { Router, Request, Response } from "express"
 
 const crawlerRoute = Router();
 
 crawlerRoute.get('/:id', (req: Request, res: Response) => {
     const { id } = req.params;
+    
     if (id === TOKENCRAWLER) {
-        drugCrawler();
-        return res.json({
-            message: 'Crawler is running...'
-        });
+        drugCrawler()
+        return res.json(rpMessage('200', 'Crawler is running'))
     }
-    return res.status(404).json({
-        error: `You don't have permission to access this api`
-    });
+    return res.json(rpMessage('404', 'Not Found'));
 });
 
 export {crawlerRoute}
