@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/controllers/index.ts"],"names":[],"mappings":";;;AAAA,qCAAqC;AAA7B,sGAAA,WAAW,OAAA;AACnB,mCAAmC;AAA3B,oGAAA,UAAU,OAAA","sourcesContent":["export {drugCrawler} from './crawler'\nexport {searchDrug} from './search'"]}
