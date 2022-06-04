@@ -1,0 +1,4 @@
+server/node_modules
+server/src/database/service-account-credentials.json
+server/.DS_Store
+.DS_Store
